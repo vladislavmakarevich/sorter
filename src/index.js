@@ -1,10 +1,10 @@
 class Sorter {
   constructor() {
     // your implementation
-      this.sorter = [];
-      this.func = function(a, b) {
-        return a - b;
-      }
+    this.sorter = [];
+    this.func = function(a, b) {
+      return a - b;
+    }
   }
 
   add(element) {
@@ -37,9 +37,7 @@ class Sorter {
     for(var i =0;i<indices.length;i++){
       temparr.push(this.sorter[indices[i]]);
     }
-    if(temparr[0]>temparr[1]){
-      temparr.reverse();
-    }
+    temparr.sort(this.func);
     for(var k=0;k<temparr.length;k++){
       this.sorter[indices[k]]=temparr[k];
     }
