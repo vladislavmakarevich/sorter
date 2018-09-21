@@ -1,7 +1,10 @@
 class Sorter {
   constructor() {
     // your implementation
-    this.sorter=[];
+      this.sorter = [];
+      this.func = function(a, b) {
+        return a - b;
+      }
   }
 
   add(element) {
@@ -11,7 +14,8 @@ class Sorter {
 
   at(index) {
     // your implementation
-    this.sorter[index];
+    return this.sorter[index];
+
   }
 
   get length() {
@@ -26,10 +30,24 @@ class Sorter {
 
   sort(indices) {
     // your implementation
+    var temparr=[];
+    if(indices[0]>indices[1]){
+      indices.reverse();
+    }
+    for(var i =0;i<indices.length;i++){
+      temparr.push(this.sorter[indices[i]]);
+    }
+    if(temparr[0]>temparr[1]){
+      temparr.reverse();
+    }
+    for(var k=0;k<temparr.length;k++){
+      this.sorter[indices[k]]=temparr[k];
+    }
   }
 
   setComparator(compareFunction) {
     // your implementation
+    this.func=compareFunction;
   }
 }
 
